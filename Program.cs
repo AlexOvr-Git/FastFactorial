@@ -21,21 +21,16 @@ namespace FastFactorialTest
             { for (int n = iFrom; n <= iTo; n += iDiff) bigProduct *= n; return bigProduct; }
 
             int iHalf = iFrom / 2; iHalf += (((iFrom - iHalf) + (iTo - iHalf)) / 2);
-            int iEx = (iHalf - iFrom) % iDiff, iStep = 100000;
+            int iEx = (iHalf - iFrom) % iDiff;
             iHalf -= iEx; iEx = (iFrom - iHalf) + (iTo - iHalf);
             long lFactor = iHalf, lDeduct = iDiff * iDiff, lRise = 2 * lDeduct;
             bigProduct = lFactor;
             lFactor *= lFactor;
             for (; iHalf > iFrom; iHalf -= iDiff)
             {
-                //Console.WriteLine("Deduct={0:N0}, Factor={1:N0}, bigProduct={2:N0}",
-                //    lDeduct, lFactor, bigProduct);
                 bigProduct *= (lFactor - lDeduct);
                 lFactor -= lDeduct;
                 lDeduct += lRise;
-
-                if (lDeduct >= iStep)
-                { Console.WriteLine((lDeduct).ToString("N0")); iStep += 100000; }
             }
             return (iEx == 0) ? bigProduct : iTo * bigProduct;
         }
