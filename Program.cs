@@ -3,6 +3,7 @@ namespace FastFactorialTest
 {
     internal partial class Program
     {
+		// Copyright (c) 2024 Alex Ovrutskiy
         // Fast Factorial & Product of Arithmetic Sequence
         // 8!   = 4*(16-1)*(15-3)*(12-5)*8 = 40,320
         // 9!   = 5*(25-1)*(24-3)*(21-5)*(16-7) = 362,880
