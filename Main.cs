@@ -18,11 +18,13 @@ namespace FastFactorialTest
                 iTo = int.Parse(args[nArg + 2]);
                 Console.WriteLine("Diff={0}, From={1}, To={2}",
                     iDiff, iFrom, iTo);
-                // long lStartTime = sw.ElapsedMilliseconds;
                 sw.Restart();
                 BigInteger bigProduct = FastFactorial(iDiff, iFrom, iTo);
                 lCountTime = sw.ElapsedMilliseconds;
-                Console.WriteLine("Product = {0:N0}", bigProduct);
+                if ((double)bigProduct < 1.0E30)
+                    Console.WriteLine("Product = {0:N0}", bigProduct);
+                 else  Console.WriteLine("Product = "+((double)bigProduct).ToString("E8")) // bigProduct);
+                ;
                 Console.WriteLine("Count Time = {0}ms, Output Time = {1}ms",
                   lCountTime, sw.ElapsedMilliseconds - lCountTime);
                 nArg += 3;
