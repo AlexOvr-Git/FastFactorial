@@ -21,10 +21,8 @@ namespace FastFactorialTest
                 sw.Restart();
                 BigInteger bigProduct = FastFactorial(iDiff, iFrom, iTo);
                 lCountTime = sw.ElapsedMilliseconds;
-                if ((double)bigProduct < 1.0E30)
-                    Console.WriteLine("Product = {0:N0}", bigProduct);
-                 else  Console.WriteLine("Product = "+((double)bigProduct).ToString("E8")) // bigProduct);
-                ;
+                string sFormat = ((double)bigProduct < 1.0E30) ? "{0:N0}" : "{0:E8}";
+                Console.WriteLine("Product = " + sFormat, bigProduct);
                 Console.WriteLine("Count Time = {0}ms, Output Time = {1}ms",
                   lCountTime, sw.ElapsedMilliseconds - lCountTime);
                 nArg += 3;
