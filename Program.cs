@@ -21,9 +21,9 @@ namespace FastFactorialTest
             if ((iTo - iFrom) < (4 * iDiff))
             { for (int n = iFrom; n <= iTo; n += iDiff) bigProduct *= n; return bigProduct; }
 
-            int iHalf = iFrom / 2; iHalf += (((iFrom - iHalf) + (iTo - iHalf)) / 2);
-            int iEx = (iHalf - iFrom) % iDiff;
-            iHalf -= iEx; iEx = (iFrom - iHalf) + (iTo - iHalf);
+            int iEx = (iTo - iFrom) / iDiff % 2 * iDiff,
+            iHalf = (iTo + iFrom - iEx) / 2;
+			
             long lFactor = iHalf, lDeduct = iDiff * iDiff, lRise = 2 * lDeduct;
             bigProduct = lFactor;
             lFactor *= lFactor;
